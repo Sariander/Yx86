@@ -35,6 +35,7 @@ if(isset($_POST['Enter']))
 
 	if($_POST["query"]=="Features of User")
 	{
+		
 		echo "Feature Query<br>";
 		$textVal = $_POST['value'];
 		if(!(is_null($textVal)))
@@ -45,11 +46,16 @@ if(isset($_POST['Enter']))
 			{
 				die(print_r(sqlsrv_errors(),true));
 			}
-
+			echo "<table border='1'>
+			<tr>
+			<th>Audit_type_id</th>
+			<th>num</th>
+			</tr> ";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
-			  
-			  echo $row['audit_type_id'].", ".$row['num']."<br />";
+			  echo "<tr>";
+			  echo "<td>" . $row['audit_type_id']. "</td>";
+			  echo "<td>". $row['num']."</td>";
 			}
 		}
 	}
@@ -64,11 +70,12 @@ if(isset($_POST['Enter']))
 			{
 				die(print_r(sqlsrv_errors(),true));
 			}
-
+			echo "<table border='1'> <tr> <th> as_id </th> <th>num</th> </tr>";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
-			  
-			  echo $row['as_id'].", ".$row['num']."<br />";
+			  echo "<tr>";
+			  echo "<td>" . $row['as_id']. "</td>";
+			  echo "<td>".$row['num']."</td>";
 			}
 	}
 	
@@ -81,11 +88,12 @@ if(isset($_POST['Enter']))
 			{
 				die(print_r(sqlsrv_errors(),true));
 			}
-
+			echo "<table border='1'> <tr> <th> audit_type_id </th> <th>num</th> </tr>";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
-			  
-			  echo $row['audit_type_id'].", ".$row['num']."<br />";
+			  echo "<tr>";			  
+			  echo "<td>" .$row['audit_type_id']. "</td>";
+			  echo "<td>" .$row['num']."</td>";
 			}
 		
 	}
