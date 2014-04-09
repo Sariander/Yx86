@@ -1,0 +1,72 @@
+<HTML>
+
+<HEAD>
+
+<meta name="description" content="Bentley Systems User Analytics">
+
+<alink="#000000">
+
+<vlink="#fee8c6">
+
+<title> User Analytics </Title>
+
+</head>
+
+<Body bgcolor="86DFF5">
+
+<!--if you want to change the plot's size, go here-->
+<div id="plot1" style="height:400px;width:600px; "></div>
+
+<script src="dist/jquery.js"></script>
+<script src="dist/jquery.jqplot.js"></script>
+<link rel="stylesheet" type="text/css" href="plugins/jquery.jqplot.css" />
+
+<script type="text/javascript" src="dist/plugins/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="dist/plugins/jqplot.pointLabels.min.js"></script>
+<script type="text/javascript" src="dist/plugins/jqplot.json2.min.js"></script>
+<!--These files can be found here:https://bitbucket.org/cleonello/jqplot/downloads/-->
+<!--be sure to keep the file in the same folder as the html file-->
+<script>
+$(document).ready(function(){
+	//ETHAN:change these dummy variables to take the results of the PHP queries
+	//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
+    var s1 = [20,30,43,14, 26,78];
+    //ETHAN: ideally these values will also be read in, and can also be file names
+    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
+     
+    var plot1 = $.jqplot('plot1', [s1], {
+        seriesDefaults:{
+            renderer:$.jqplot.BarRenderer,
+            rendererOptions: {fillToZero: true}
+        },
+
+        series:[
+            {label:'Frequency'},
+        ],
+ 
+        legend: {
+            show: true,
+            placement: 'outsideGrid'
+        },
+        axes: {
+
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer,
+                ticks: ticks
+            },
+ 
+            yaxis: {
+                pad: 1.05,
+                tickOptions: {formatString: '%d'}
+            }
+        }
+    });
+});</script>
+
+
+<script language="javascript" type="text/javascript" src="plugins/jqplot.barRenderer.min.js"></script>
+<script $.jqplot('chartdiv',  [[34.53, 56.32, 25.1, 18.6]], {series:[{renderer:$.jqplot.BarRenderer}]});></script>
+
+
+</body>
