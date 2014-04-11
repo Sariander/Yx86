@@ -2,7 +2,7 @@
 <head></head>
 
 <form method="POST" name = "myform" action="test.php">
-
+<!--
 Select Option :
 <select name="query">
 	<option value = "Features of User"> Features of User </option>
@@ -14,8 +14,10 @@ Select Option :
 <input type='text' name = 'value' />
 <input type="submit" name = 'Enter'/>
 <br>
+-->
 <?php 
 //echo "Testing Connection<br>";
+$ret_array = array();
 if(isset($_POST['Enter']))
 {
 	
@@ -53,11 +55,15 @@ if(isset($_POST['Enter']))
 			</tr> ";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
+			  $row_array['audit_type_id'] = $row['audit_type_id'];
+			  $row_array['num'] = $row['num'];
 			  echo "<tr>";
 			  echo "<td>" . $row['audit_type_id']. "</td>";
 			  echo "<td>". $row['num']."</td>";
+			  array_push($ret_array,$row_array);
 			}
 		}
+		$return["json"]= json_encode($ret_array);
 	}
 	else if ($_POST["query"]== "Most Used Features")
 	{
@@ -73,16 +79,20 @@ if(isset($_POST['Enter']))
 			echo "<table border='1'> <tr> <th> as_id </th> <th>num</th> </tr>";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
+			  $row_array['as_id'] = $row['as_id'];
+			  $row_array['num'] = $row['num'];
 			  echo "<tr>";
 			  echo "<td>" . $row['as_id']. "</td>";
 			  echo "<td>".$row['num']."</td>";
+			  array_push($ret_array,$row_array);
 			}
+			$return["json"]= json_encode($ret_array);
 	}
 	
 	else if($_POST["query"]== "Specific Feature")
 	{
 		echo "Specific Feature<br>";
-		$sql = "select audit_type_id, count(*) as 'num' from tblAuditLog group by audit_type_id order by num desc";
+		$sql = "select top 10  audit_type_id, count(*) as 'num' from tblAuditLog group by audit_type_id order by num desc";
 			$stmt = sqlsrv_query($conn, $sql);
 			if($stmt == false)
 			{
@@ -91,18 +101,21 @@ if(isset($_POST['Enter']))
 			echo "<table border='1'> <tr> <th> audit_type_id </th> <th>num</th> </tr>";
 			while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 			{
+			  $row_array['audit_type_id'] = $row['audit_type_id'];
+			  $row_array['num'] = $row['num'];
 			  echo "<tr>";			  
 			  echo "<td>" .$row['audit_type_id']. "</td>";
 			  echo "<td>" .$row['num']."</td>";
+			  array_push($ret_array,$row_array);
 			}
-		
+		$return["json"]= json_encode($ret_array);
 	}
 	else
 		echo "Invalid Selection";
 	
 }
 
-	  
+	  //echo json_encode($ret_arr);
 	  //$sql ="select top 10 ast_id, aed_freq_days, aed_freq_months from dbo.tblAssetTasks order by aed_freq_days";
 	
 
