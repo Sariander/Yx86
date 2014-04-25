@@ -2,7 +2,7 @@
 <!-- saved from url=(0040)http://www.jacklmoore.com/demo/tabs.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>jQuery Tabs Demo</title>
+		<title>Bently Systems</title>
 		<style>
 			* {padding:0; margin:0;}
 
@@ -14,19 +14,17 @@
 			}
 
 			h3 { 
-				padding: 15px 15px 0px 15px;
-				margin-bottom:15px;
+				padding: 15px 0px 15px 0px;
 				background:#666;
 				color:#fff;
-
+				text-align:center
 			}
-			p { 
-				padding: 0px 15px 0px 15px;
-				margin-bottom:15px;
-				background:#666;
-				color:#fff;
-
-			}
+			p {
+			padding: 0px 20px 0px 20px;
+			margin-bottom: 15px;
+			background: #666;
+			color: #fff;
+		}
 
 
 			div {
@@ -40,10 +38,13 @@
 			.tabs li {
 				list-style:none;
 				display:inline;
+				float: none;
 			}
 
 			.tabs a {
-				padding:5px 10px;
+				padding:5px 9%;
+				margin-left: 1%;
+				margin-right: 1%;
 				display:inline-block;
 				background:#999;
 				color:#000;
@@ -54,7 +55,12 @@
 				background:#666;
 				color:#fff;
 			}
-
+			
+			ul
+			{
+				text-align:center;
+			}
+}
 		</style>
 		<script src="./project_files/jquery.min.js"></script>
 		<script>
@@ -102,20 +108,20 @@
 	<body>
 		<ul class="tabs">
 			<li>
-			<a href="#tab1" class="active" style="width: 37px">Tab 1</a></li>
-			<li><a href="#tab2">Tab 2</a></li>
-			<li><a href="#tab3">Tab 3</a></li>
+			<a href="#tab1" class="active" style="width: auto">Query 1</a></li>
+			<li><a href="#tab2">Query 2</a></li>
+			<li><a href="#tab3">Query 3</a></li>
 		</ul>
 		<div id="tab1">
-			<h3>Section 1</h3>
+			<h3>Detailed Name Query 1</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis placerat dolor id aliquet. Sed a orci in justo blandit commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
 		</div>
 		<div id="tab2" style="display: none;">
-			<h3>Section 2</h3>
+			<h3>Detailed Name Query 2</h3>
 			<p>Aenean et est tortor. In pharetra pretium convallis. Mauris sollicitudin ligula non mi hendrerit varius. Fusce convallis hendrerit mauris, eu accumsan nisl aliquam eu.</p>
 		</div>
 		<div id="tab3" style="display: none;">
-			<h3>Section 3</h3>
+			<h3>Detailed Name Query 3</h3>
 			<p>Suspendisse potenti. Morbi laoreet magna vitae est mollis ultricies. Mauris eget enim ac justo eleifend malesuada. Proin non consectetur est. Integer semper laoreet porta. Praesent facilisis leo nec libero tincidunt blandit.</p>
 		</div>
 	
