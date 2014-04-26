@@ -7,31 +7,37 @@
 			* {padding:0; margin:0;}
 
 			html {
-				background:url(/img/tiles/wood.png) 0 0 repeat;
-				padding:15px 0px 0;
+				padding:1% 0px 0;
 				font-family:sans-serif;
 				font-size:14px;
+				height:92%;
 			}
 
 			h3 { 
 				padding: 15px 0px 15px 0px;
-				background:#666;
-				color:#fff;
+				background:#ddd;
+				color:#000;
 				text-align:center
 			}
 			p {
 			padding: 0px 20px 0px 20px;
 			margin-bottom: 15px;
-			background: #666;
-			color: #fff;
+			background: #ddd;
+			color: #000;
 		}
-
+			body
+			{
+				height: 100%;
+			}
 
 			div {
+				float:left;
 				padding: 0px 0px 5px;
 				width:100%;
-				background:#666;
-				color:#fff;
+				height: 100%;
+				min-height:80%;
+				background:#ddd;
+				color:#000;
 
 			}
 
@@ -42,18 +48,18 @@
 			}
 
 			.tabs a {
-				padding:5px 9%;
+				padding:5px 7%;
 				margin-left: 1%;
 				margin-right: 1%;
 				display:inline-block;
-				background:#999;
+				background:#aaa;
 				color:#000;
 				text-decoration:none;
 			}
 
 			.tabs a.active {
-				background:#666;
-				color:#fff;
+				background:#ddd;
+				color:#000;
 			}
 			
 			ul
@@ -108,21 +114,21 @@
 	<body>
 		<ul class="tabs">
 			<li>
-			<a href="#tab1" class="active" style="width: auto">Query 1</a></li>
-			<li><a href="#tab2">Query 2</a></li>
-			<li><a href="#tab3">Query 3</a></li>
+			<a href="#tab1" class="active" style="width: auto">Features of User</a></li>
+			<li><a href="#tab2">Most Used Features</a></li>
+			<li><a href="#tab3">Specific Feature</a></li>
 		</ul>
 		<div id="tab1">
-			<h3>Detailed Name Query 1</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis placerat dolor id aliquet. Sed a orci in justo blandit commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+			<h3>Features of User</h3>
+			<p>Query Stuff goes here</p>
 		</div>
 		<div id="tab2" style="display: none;">
-			<h3>Detailed Name Query 2</h3>
-			<p>Aenean et est tortor. In pharetra pretium convallis. Mauris sollicitudin ligula non mi hendrerit varius. Fusce convallis hendrerit mauris, eu accumsan nisl aliquam eu.</p>
-		</div>
+			<h3>Most Used Features</h3>
+			<p>Query Stuff goes here</p>
+			</div>
 		<div id="tab3" style="display: none;">
-			<h3>Detailed Name Query 3</h3>
-			<p>Suspendisse potenti. Morbi laoreet magna vitae est mollis ultricies. Mauris eget enim ac justo eleifend malesuada. Proin non consectetur est. Integer semper laoreet porta. Praesent facilisis leo nec libero tincidunt blandit.</p>
+			<h3>Specific Feature</h3>
+			<p>Query Stuff goes here</p>
 		</div>
 	
 </body></html>
