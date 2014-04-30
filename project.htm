@@ -4,10 +4,20 @@
 		<meta charset="utf-8">
 		<title>Bently Systems</title>
 		<style>
+		div {
+			background:#013758;
+			color:#fff;
+		}
+		h3 {
+			background:#013758;
+			margin-top: 0px;
+			color:#fff;
+		}
+
 		.tabrow {
 		    text-align: center;
 		    list-style: none;
-		    margin: 5% 0 20px;
+		    margin: 1% 0 0px;
 		    padding: 0;
 		    line-height: 24px;
 		    height: 26px;
@@ -45,12 +55,24 @@
 			  padding-top: 5px;
 			  padding-bottom: 5px;
 		}
-		.tabrow li.selected {
-		    background: #FFF;
-		    color: #333;
-		    z-index: 2;
-		    border-bottom-color: #FFF;
+		
+		.tabrow a.active {
+			color: #fff;
+			text-shadow: 0 1px #000;
 		}
+		
+		.tabrow li.selected {
+		    background: #013758 ;
+		    background: -o-linear-gradient(top, #002a43 50%, #013758 100%);
+		    background: -ms-linear-gradient(top, #002a43 50%, #013758 100%);
+		    background: -moz-linear-gradient(top, #002a43 50%, #013758 100%);
+		    background: -webkit-linear-gradient(top, #002a43 50%, #013758 100%);
+		    background: linear-gradient(top, #002a43 50%, #013758 100%);
+		    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #013758;
+		    z-index: 2;
+		    border-bottom-color: #013758;
+		}
+		
 		.tabrow:before {
 		    position: absolute;
 		    content: " ";
@@ -60,6 +82,7 @@
 		    border-bottom: 1px solid #AAA;
 		    z-index: 1;
 		}
+		
 		.tabrow li:before,
 		.tabrow li:after {
 		    border: 1px solid #AAA;
@@ -82,10 +105,11 @@
 		    box-shadow: -2px 2px 0 #D1D1D1;
 		}
 		.tabrow li.selected:before {
-		    box-shadow: 2px 2px 0 #FFF;
+		    box-shadow: 2px 2px 0 #013758;
+;
 		}
 		.tabrow li.selected:after {
-		    box-shadow: -2px 2px 0 #FFF;
+		    box-shadow: -2px 2px 0 #013758;
 		}
 		</style>
 		<script src="./project_files/jquery.min.js"></script>
@@ -142,7 +166,10 @@
 	<style type="text/css">
 	</style></head>
 	<body>
-		<ul class="tabrow">
+	<a href="project.htm">
+		<img src="http://www.bentley.com/BentleyWebSite/Images/common/bentley-logo.gif" alt="Bentley" style ="width:210px; height:65px; border:0;" id="topLogo">
+	</a>
+	<ul class="tabrow">
 			<li class="selected"><a href="#tab1" class="active">Features of User</a></li>
 			<li><a href="#tab2">Most Used Features</a></li>
 			<li><a href="#tab3">Specific Feature</a></li>
