@@ -1,0 +1,132 @@
+﻿html {
+			height: 100%;
+			background:#EEE;
+		}
+		body {
+			margin: 0px;
+			min-width: 600px;
+			height: 100%;
+		}
+		ul {
+			display:block
+		}
+		div {
+			background:#013758;
+			color:#fff;
+			padding: 0 5px 0 5px;
+			height: 83%;
+			font-family: verdana;
+			font-size: 16px;
+		}
+		h3 {
+			background:#013758;
+			margin-top: 0px;
+			padding: 10px 0;
+			color:#fff;
+			text-align: center;
+			font-family: verdana;
+			font-size: 20px;
+		}
+		p {
+			padding: 0 5%;
+		}
+
+		.tabrow {
+		    text-align: center;
+		    list-style: none;
+		    margin: 1% 0 0px;
+		    padding: 0;
+		    line-height: 24px;
+		    text-align:center;
+		    overflow:hidden;
+		    font-size: 12px;
+		    font-family: verdana;
+		    position: relative;
+		}
+		.tabrow li {
+		    border: 1px solid #AAA;
+		    background: #D1D1D1;
+		    background: -o-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+		    background: -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+		    background: -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+		    background: -webkit-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+		    background: linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+		    display: inline-block;
+		    position: relative;
+		    z-index: 0;
+		    border-top-left-radius: 6px;
+		    border-top-right-radius: 6px;
+		    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+		    text-shadow: 0 1px #FFF;
+		    width: 20%;
+		    min-width: 150px;
+		    margin: 0 2% 0 2%;
+		}
+		.tabrow a {
+			  color: #555;
+			  text-decoration: none;
+			  position:relative;
+			  width: 100%;
+			  height: 100%;			  
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+			  display:inline-block;
+			  width:100%;
+			  text-align:center;
+		}
+		
+		.tabrow a.active {
+			color: #fff;
+			text-shadow: 0 1px #000;
+		}
+		
+		.tabrow li.selected {
+		    background: #013758 ;
+		    background: -o-linear-gradient(top, #002a43 25%, #013758 100%);
+		    background: -ms-linear-gradient(top, #002a43 25%, #013758 100%);
+		    background: -moz-linear-gradient(top, #002a43 25%, #013758 100%);
+		    background: -webkit-linear-gradient(top, #002a43 25%, #013758 100%);
+		    background: linear-gradient(top, #002a43 25%, #013758 100%);
+		    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #013758;
+		    z-index: 2;
+		    border-bottom-color: #013758;
+		}
+		
+		.tabrow:before {
+		    position: absolute;
+		    content: " ";
+		    width: 100%;
+		    bottom: 0;
+		    left: 0;
+		    border-bottom: 1px solid #AAA;
+		    z-index: 1;
+		}
+		
+		.tabrow li:before,
+		.tabrow li:after {
+		    border: 1px solid #AAA;
+		    position: absolute;
+		    bottom: -1px;
+		    width: 5px;
+		    height: 5px;
+		    content: " ";
+		}
+		.tabrow li:before {
+		    left: -6px;
+		    border-bottom-right-radius: 6px;
+		    border-width: 0 1px 1px 0;
+		    box-shadow: 2px 2px 0 #D1D1D1;
+		}
+		.tabrow li:after {
+		    right: -6px;
+		    border-bottom-left-radius: 6px;
+		    border-width: 0 0 1px 1px;
+		    box-shadow: -2px 2px 0 #D1D1D1;
+		}
+		.tabrow li.selected:before {
+		    box-shadow: 2px 2px 0 #013758;
+;
+		}
+		.tabrow li.selected:after {
+		    box-shadow: -2px 2px 0 #013758;
+		}
