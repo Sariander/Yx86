@@ -17,11 +17,12 @@
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
 			    var plot1 = $.jqplot('plot1', [s1], {
-						height: 300,
+						height: 400,
 						width: 600,
+						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 				        seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true}
 			        },
 			
 			        series:[
@@ -29,53 +30,56 @@
 			        ],
 			 
 			        legend: {
-			            show: true,
-			            placement: 'outsideGrid'
+			            show: false
 			        },
 			        axes: {
 			
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
-			                ticks: ticks
+			                ticks: ticks,
+							label: 'audit_type_id'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
-			                tickOptions: {formatString: '%d'}
+			                tickOptions: {formatString: '%d'},
+							label: 'num'
 			            }
 			        }
 			    });
 			    
-			    var s2 = [20,30,43,14, 26,78];
+			    var s2 = [20,30,43,34, 26,48];
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks2 = ['Jan','Feb','Mar','Apr','May','June'];
 
 				var plot2 = $.jqplot('plot2', [s2], {
-						height: 300,
+						height: 400,
 						width: 600,
+						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true}
 			        },
 			
 			        series:[
 			            {label:'Frequency'},
 			        ],
 			 
-			        legend: {
-			            show: true,
-			            placement: 'outsideGrid'
-			        },
+			        legend: { 
+						show:false
+					},
 			        axes: {
 			
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
-			                ticks: ticks2
+			                ticks: ticks2,
+							label: 'as_id'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
-			                tickOptions: {formatString: '%d'}
+			                tickOptions: {formatString: '%d'},
+							label: 'num'
 			            }
 			        }
 			    });
@@ -86,11 +90,12 @@
 
 			
 				var plot3 = $.jqplot('plot3', [s3], {
-						height: 300,
+						height: 400,
 						width: 600,
+						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true}
 			        },
 			
 			        series:[
@@ -98,19 +103,20 @@
 			        ],
 			 
 			        legend: {
-			            show: true,
-			            placement: 'outsideGrid'
+			            show: false
 			        },
 			        axes: {
 			
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
-			                ticks: ticks3
+			                ticks: ticks3,
+							label: 'audit_type_id'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
-			                tickOptions: {formatString: '%d'}
+			                tickOptions: {formatString: '%d'},
+							label: 'num'
 			            }
 			        }
 			    });
@@ -201,17 +207,14 @@
 		</ul>
 		<div id="tab1" class="main">
 			<h3>Features of User</h3>
-			<p>Query Stuff goes here</p>
 			<div id="plot1" class="plot"></div>
 		</div>
 		<div id="tab2" class="main" style="display: none;">
 			<h3>Most Used Features</h3>
-			<p>Query Stuff goes here</p>
 			<div id="plot2" class="plot"></div>
 			</div>
 		<div id="tab3" class="main" style="display: none;">
 			<h3>Specific Feature</h3>
-			<p>Query Stuff goes here</p>
 			<div id="plot3" class="plot"></div>
 		</div>
 	

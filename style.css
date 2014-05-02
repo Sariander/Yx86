@@ -19,6 +19,7 @@
 		}
 		div.plot{
 			width: 600px;
+			margin: auto;	
 		}
 		div.main {
 			height: 83%;
@@ -26,7 +27,7 @@
 		h3 {
 			background:#013758;
 			margin-top: 0px;
-			padding: 10px 0;
+			padding: 2% 0 0px;
 			color:#fff;
 			text-align: center;
 			font-family: verdana;
