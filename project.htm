@@ -13,10 +13,12 @@
 			$(document).ready(function(){			
 				//ETHAN:change these dummy variables to take the results of the PHP queries
 				//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
-			    var s1 = [20,30,43,14, 26,78];
+			    var s1 = [30,50,43,14, 26,78];
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
 			    var plot1 = $.jqplot('plot1', [s1], {
+						height: 300,
+						width: 600,
 				        seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
 			            rendererOptions: {fillToZero: true}
@@ -48,8 +50,9 @@
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks2 = ['Jan','Feb','Mar','Apr','May','June'];
 
-
 				var plot2 = $.jqplot('plot2', [s2], {
+						height: 300,
+						width: 600,
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
 			            rendererOptions: {fillToZero: true}
@@ -77,12 +80,14 @@
 			        }
 			    });
 				
-				var s3 = [20,30,43,14, 26,78];
+				var s3 = [20,19,43,25, 26,30];
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks3 = ['Jan','Feb','Mar','Apr','May','June'];
 
 			
 				var plot3 = $.jqplot('plot3', [s3], {
+						height: 300,
+						width: 600,
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
 			            rendererOptions: {fillToZero: true}
@@ -197,17 +202,17 @@
 		<div id="tab1" class="main">
 			<h3>Features of User</h3>
 			<p>Query Stuff goes here</p>
-			<div id="plot1"></div>
+			<div id="plot1" class="plot"></div>
 		</div>
 		<div id="tab2" class="main" style="display: none;">
 			<h3>Most Used Features</h3>
 			<p>Query Stuff goes here</p>
-			<div id="plot2"></div>
+			<div id="plot2" class="plot"></div>
 			</div>
 		<div id="tab3" class="main" style="display: none;">
 			<h3>Specific Feature</h3>
 			<p>Query Stuff goes here</p>
-			<div id="plot3"></div>
+			<div id="plot3" class="plot"></div>
 		</div>
 	
 </body></html>

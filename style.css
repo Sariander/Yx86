@@ -17,6 +17,9 @@
 			font-family: verdana;
 			font-size: 16px;
 		}
+		div.plot{
+			width: 600px;
+		}
 		div.main {
 			height: 83%;
 		}
