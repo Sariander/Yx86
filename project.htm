@@ -3,7 +3,14 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>Bently Systems</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">		
+		
+		
+		
+		<link rel="stylesheet" type="text/css" href="dist/jquery.jqplot.css" />
+		
+		
+		
 		<script src="./project_files/jquery.min.js"></script>
 		<script>
 			// Wait until the DOM has loaded before querying the document
@@ -38,11 +45,116 @@
 						// Make the tab active.
 						$active.addClass('active');
 						$content.show();
-
+						
 						// Prevent the anchor's default click action
 						e.preventDefault();
 					});
 				});
+				
+				
+				
+				
+				//ETHAN:change these dummy variables to take the results of the PHP queries
+				//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
+			    var s1 = [20,30,43,14, 26,78];
+			    //ETHAN: ideally these values will also be read in, and can also be file names
+			    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
+			    var plot1 = $.jqplot('plot1', [s1], {
+				        seriesDefaults:{
+			            renderer:$.jqplot.BarRenderer,
+			            rendererOptions: {fillToZero: true}
+			        },
+			
+			        series:[
+			            {label:'Frequency'},
+			        ],
+			 
+			        legend: {
+			            show: true,
+			            placement: 'outsideGrid'
+			        },
+			        axes: {
+			
+			            xaxis: {
+			                renderer: $.jqplot.CategoryAxisRenderer,
+			                ticks: ticks
+			            },
+			 
+			            yaxis: {
+			                pad: 1.05,
+			                tickOptions: {formatString: '%d'}
+			            }
+			        }
+			    });
+			    
+			    var s2 = [20,30,43,14, 26,78];
+			    //ETHAN: ideally these values will also be read in, and can also be file names
+			    var ticks2 = ['Jan','Feb','Mar','Apr','May','June'];
+
+
+				var plot2 = $.jqplot('plot2', [s2], {
+					    seriesDefaults:{
+			            renderer:$.jqplot.BarRenderer,
+			            rendererOptions: {fillToZero: true}
+			        },
+			
+			        series:[
+			            {label:'Frequency'},
+			        ],
+			 
+			        legend: {
+			            show: true,
+			            placement: 'outsideGrid'
+			        },
+			        axes: {
+			
+			            xaxis: {
+			                renderer: $.jqplot.CategoryAxisRenderer,
+			                ticks: ticks2
+			            },
+			 
+			            yaxis: {
+			                pad: 1.05,
+			                tickOptions: {formatString: '%d'}
+			            }
+			        }
+			    });
+				
+				var s3 = [20,30,43,14, 26,78];
+			    //ETHAN: ideally these values will also be read in, and can also be file names
+			    var ticks3 = ['Jan','Feb','Mar','Apr','May','June'];
+
+			
+				var plot3 = $.jqplot('plot3', [s3], {
+					    seriesDefaults:{
+			            renderer:$.jqplot.BarRenderer,
+			            rendererOptions: {fillToZero: true}
+			        },
+			
+			        series:[
+			            {label:'Frequency'},
+			        ],
+			 
+			        legend: {
+			            show: true,
+			            placement: 'outsideGrid'
+			        },
+			        axes: {
+			
+			            xaxis: {
+			                renderer: $.jqplot.CategoryAxisRenderer,
+			                ticks: ticks3
+			            },
+			 
+			            yaxis: {
+			                pad: 1.05,
+			                tickOptions: {formatString: '%d'}
+			            }
+			        }
+			    });
+				
+				
+				
 			});
 		</script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -58,6 +170,17 @@
 	<style type="text/css">
 	</style></head>
 	<body>
+	
+	
+	<script src="dist/jquery.jqplot.js"></script>
+	
+	
+	<script type="text/javascript" src="dist/plugins/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="dist/plugins/jqplot.pointLabels.min.js"></script>
+	<script type="text/javascript" src="dist/plugins/jqplot.json2.min.js"></script>
+	
+	
 	<a href="project.htm">
 		<img src="http://www.bentley.com/BentleyWebSite/Images/common/bentley-logo.gif" alt="Bentley" style ="width:210px; height:65px; border:0;" id="topLogo">
 	</a>
@@ -66,17 +189,20 @@
 			<li><a href="#tab2">Most Used Features</a></li>
 			<li><a href="#tab3">Specific Feature</a></li>
 		</ul>
-		<div id="tab1">
+		<div id="tab1" class="main">
 			<h3>Features of User</h3>
 			<p>Query Stuff goes here</p>
+			<div id="plot1"></div>
 		</div>
-		<div id="tab2" style="display: none;">
+		<div id="tab2" class="main" style="display: none;">
 			<h3>Most Used Features</h3>
 			<p>Query Stuff goes here</p>
+			<div id="plot2"></div>
 			</div>
-		<div id="tab3" style="display: none;">
+		<div id="tab3" class="main" style="display: none;">
 			<h3>Specific Feature</h3>
 			<p>Query Stuff goes here</p>
+			<div id="plot3"></div>
 		</div>
 	
 </body></html>

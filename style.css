@@ -14,9 +14,11 @@
 			background:#013758;
 			color:#fff;
 			padding: 0 5px 0 5px;
-			height: 83%;
 			font-family: verdana;
 			font-size: 16px;
+		}
+		div.main {
+			height: 83%;
 		}
 		h3 {
 			background:#013758;
