@@ -4,56 +4,13 @@
 		<meta charset="utf-8">
 		<title>Bently Systems</title>
 		<link rel="stylesheet" type="text/css" href="style.css">		
-		
-		
-		
+
 		<link rel="stylesheet" type="text/css" href="dist/jquery.jqplot.css" />
-		
-		
 		
 		<script src="./project_files/jquery.min.js"></script>
 		<script>
 			// Wait until the DOM has loaded before querying the document
-			$(document).ready(function(){
-				$('ul.tabrow').each(function(){
-					// For each set of tabs, we want to keep track of
-					// which tab is active and it's associated content
-					var $active, $content, $links = $(this).find('a');
-
-					// If the location.hash matches one of the links, use that as the active tab.
-					// If no match is found, use the first link as the initial active tab.
-					$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
-					$active.addClass('active');
-
-					$content = $($active[0].hash);
-
-					// Hide the remaining content
-					$links.not($active).each(function () {
-						$(this.hash).hide();
-					});
-
-					// Bind the click event handler
-					$(this).on('click', 'a', function(e){
-						// Make the old tab inactive.
-						$active.removeClass('active');
-						$content.hide();
-
-						// Update the variables with the new link and content
-						$active = $(this);
-						$content = $(this.hash);
-
-						// Make the tab active.
-						$active.addClass('active');
-						$content.show();
-						
-						// Prevent the anchor's default click action
-						e.preventDefault();
-					});
-				});
-				
-				
-				
-				
+			$(document).ready(function(){			
 				//ETHAN:change these dummy variables to take the results of the PHP queries
 				//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
 			    var s1 = [20,30,43,14, 26,78];
@@ -153,7 +110,55 @@
 			        }
 			    });
 				
-				
+								$('ul.tabrow').each(function(){
+					// For each set of tabs, we want to keep track of
+					// which tab is active and it's associated content
+					var $active, $content, $links = $(this).find('a');
+
+					// If the location.hash matches one of the links, use that as the active tab.
+					// If no match is found, use the first link as the initial active tab.
+					$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+					$active.addClass('active');
+
+					$content = $($active[0].hash);
+
+					// Hide the remaining content
+					$links.not($active).each(function () {
+						$(this.hash).hide();
+					});
+
+					// Bind the click event handler
+					$(this).on('click', 'a', function(e){
+						// Make the old tab inactive.
+						$active.removeClass('active');
+						$content.hide();
+
+						// Update the variables with the new link and content
+						$active = $(this);
+						$content = $(this.hash);
+
+						// Make the tab active.
+						$active.addClass('active');
+						$content.show();
+						
+						if($active[0].hash === '#tab1')
+						{
+							plot1.replot();
+						}
+						else if($active[0].hash === '#tab2')
+						{
+							plot2.replot();
+						}
+						else if($active[0].hash === '#tab3')
+						{
+							plot3.replot();
+						}
+						
+						// Prevent the anchor's default click action
+						e.preventDefault();
+					});
+				});
+
 				
 			});
 		</script>
