@@ -13,7 +13,7 @@
 			$(document).ready(function(){			
 				//ETHAN:change these dummy variables to take the results of the PHP queries
 				//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
-			    var s1 = [30,50,43,14, 26,78];
+			    var s1 = [30,50,43,14, 26,76];
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
 			    var plot1 = $.jqplot('plot1', [s1], {
@@ -22,7 +22,8 @@
 						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 				        seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true, varyBarColor: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true},
+						pointLabels: { show:true } 
 			        },
 			
 			        series:[
@@ -48,7 +49,7 @@
 			        }
 			    });
 			    
-			    var s2 = [20,30,43,34, 26,48];
+			    var s2 = [32,30,43,34, 26,58];
 			    //ETHAN: ideally these values will also be read in, and can also be file names
 			    var ticks2 = ['Jan','Feb','Mar','Apr','May','June'];
 
@@ -58,7 +59,8 @@
 						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true, varyBarColor: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true},
+						pointLabels: { show:true } 
 			        },
 			
 			        series:[
@@ -95,7 +97,8 @@
 						seriesColors:['#85802b', '#00749F', '#73C774', '#C7754C', '#17BDB8'],
 					    seriesDefaults:{
 			            renderer:$.jqplot.BarRenderer,
-			            rendererOptions: {fillToZero: true, varyBarColor: true}
+			            rendererOptions: {fillToZero: true, varyBarColor: true},
+						pointLabels: { show:true } 
 			        },
 			
 			        series:[
