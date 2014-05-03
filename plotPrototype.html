@@ -1,24 +1,3 @@
-﻿<HTML>
-
-<HEAD>
-
-<meta name="description" content="Bentley Systems User Analytics">
-
-<alink="#000000">
-
-<vlink="#fee8c6">
-
-<title> User Analytics </Title>
-
-</head>
-
-<Body bgcolor="86DFF5">
-
-<!--if you want to change the plot's size, go here-->
-<div id="plot1" style="height:400px;width:600px; "></div>
-
-<script src="dist/jquery.js"></script>
-<script src="dist/jquery.jqplot.js"></script>
 <link rel="stylesheet" type="text/css" href="plugins/jquery.jqplot.css" />
 
 <script type="text/javascript" src="dist/plugins/jqplot.barRenderer.min.js"></script>
@@ -29,48 +8,53 @@
 <!--be sure to keep the file in the same folder as the html file-->
 <script>
 $(document).ready(function(){
-	
-			
 	//ETHAN:change these dummy variables to take the results of the PHP queries
 	//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
-    var s1 = [20,30,43,14, 26,78];
+    PHPconnection(1);
+	//var s1 = [20,30,43,14, 26,78];
     //ETHAN: ideally these values will also be read in, and can also be file names
     var ticks = ['Jan','Feb','Mar','Apr','May','June'];
      
-    var plot1 = $.jqplot('plot1', [s1], {
+    var plot1 = $.jqplot('plot1', [datArray], {
         seriesDefaults:{
             renderer:$.jqplot.BarRenderer,
             rendererOptions: {fillToZero: true}
         },
-
+        // Custom labels for the series are specified with the "label"
+        // option on the series option.  Here a series option object
+        // is specified for each series.
         series:[
             {label:'Frequency'},
+ //           {label:'Event Regristration'},
+//			{label:'Airfare'}
         ],
- 
+        // Show the legend and put it outside the grid, but inside the
+        // plot container, shrinking the grid to accomodate the legend.
+        // A value of "outside" would not shrink the grid and allow
+        // the legend to overflow the container.
         legend: {
             show: true,
             placement: 'outsideGrid'
         },
         axes: {
-
+            // Use a category axis on the x axis and use our custom ticks.
             xaxis: {
                 renderer: $.jqplot.CategoryAxisRenderer,
                 ticks: ticks
             },
- 
+            // Pad the y axis just a little so bars can get close to, but
+            // not touch, the grid boundaries.  1.2 is the default padding.
             yaxis: {
                 pad: 1.05,
                 tickOptions: {formatString: '%d'}
             }
         }
     });
-    
-    
-
 });</script>
 
 
 <script language="javascript" type="text/javascript" src="plugins/jqplot.barRenderer.min.js"></script>
+<script $.jqplot('chartdiv',  [[34.53, 56.32, 25.1, 18.6]], {series:[{renderer:$.jqplot.BarRenderer}]});></script>
 
 
 </body>
