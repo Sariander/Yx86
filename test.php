@@ -2,6 +2,19 @@
 <head></head>
 
 <form method="POST" name = "myform" action="test.php">
+
+<!--
+this is Neil's code.  The if statement will check against a value that my code sends.  See plotPrototype
+for how to change that value.  the 'echo' line is also formatted in such a way that my code can read the results.
+
+'Id' is the id of the user or feature that the php file is querying for.
+
+Id=$_POST["id"];
+if ($_POST["queryType"]== "1")
+	{echo "20,30,43,14,26,78";}
+
+-->
+
 <!--
 Select Option :
 <select name="query">
