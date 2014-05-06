@@ -1,3 +1,45 @@
+<HTML>
+
+<HEAD>
+
+<meta name="description" content="Bentley Systems User Analytics">
+
+<alink="#000000">
+
+<vlink="#fee8c6">
+
+<title> User Analytics </Title>
+
+</head>
+
+<Body bgcolor="86DFF5">
+<form id="myForm" action ="test.php" method="REQUEST">
+ID: <input type="number" name="id"><br />
+<button id="submit">Submit</button>
+
+<script>
+var datArray;
+function PHPconnection(queryType)
+{
+	$.post("test.php",
+		{		
+			"queryType":queryType
+		},loadVariables
+	);
+}
+
+function loadVariables(data)
+{
+	datArray = data.split(",");
+}
+</script>
+
+
+<!--if you want to change the plot's size, go here-->
+<div id="plot1" style="height:400px;width:600px; "></div>
+
+<script src="dist/jquery.js"></script>
+<script src="dist/jquery.jqplot.js"></script>
 <link rel="stylesheet" type="text/css" href="plugins/jquery.jqplot.css" />
 
 <script type="text/javascript" src="dist/plugins/jqplot.barRenderer.min.js"></script>
