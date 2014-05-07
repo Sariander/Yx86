@@ -10,12 +10,54 @@
 		<script src="./project_files/jquery.min.js"></script>
 		<script>
 			// Wait until the DOM has loaded before querying the document
-			$(document).ready(function(){			
-				//ETHAN:change these dummy variables to take the results of the PHP queries
-				//ideally we'll be able to alter the number of variables that we read in, but I realize that that may not be possible
-			    var s1 = [30,50,43,14, 26,76];
-			    //ETHAN: ideally these values will also be read in, and can also be file names
-			    var ticks = ['Jan','Feb','Mar','Apr','May','June'];
+			$(document).ready(function(){	
+
+			<?php
+				$userIDvar = "";
+				if (!empty($_POST["user_id"])) {
+					//echo "Yes, user id is set"; // you can remove this
+				   $userIDvar = $_POST["user_id"]; // set your user id variable to $_POST["user_id"]
+				   //echo " ".$userIDvar;
+				}else{  
+					echo "No, user id is not set"; // you can remove this
+					// set user id variable to a default value
+					$userIDvar = 2000;
+				}
+				//change this information on where the database is located and how 
+				//to connect to it
+				$serverName = "2CE12909L0\ANALYTICS";
+				$connectionOptions = array("Database"=>"GCC_ANALYTICS");
+
+				/* Connect using Windows Authentication. */
+				$conn = sqlsrv_connect( $serverName, $connectionOptions);
+				if( $conn ) {}
+				else{
+					 die( print_r( sqlsrv_errors(), true));
+				}
+					
+				
+				$arrayX2=array();
+				$arrayY2=array();
+				
+					$sql = "select audit_type_id, count(*) as 'num' from tblAuditLog where in_id=$userIDvar and as_id is not null group by audit_type_id order by num desc";
+					$stmt = sqlsrv_query($conn, $sql);
+					if($stmt == false)
+					{
+						die(print_r(sqlsrv_errors(),true));
+					}
+					
+					while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
+					{
+					
+					  array_push($arrayX2,$row['audit_type_id']);
+					  array_push($arrayY2,$row['num']);
+					}
+				
+			
+			?>
+				//gets the results from the query and puts them into these arrays
+			    var ticks = <?php echo "[".implode(",",$arrayX2)."];"; ?>
+				var s1 = <?php echo "[".implode(",",$arrayY2)."];"; ?>
 			    var plot1 = $.jqplot('plot1', [s1], {
 						height: 400,
 						width: 600,
@@ -38,51 +80,33 @@
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
 			                ticks: ticks,
-							label: 'audit_type_id'
+							label: 'Audit ID'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
 							min: 0,
-							max: 100,
+							max: <?php echo $arrayY2[0] +250 ?>,
 			                tickOptions: {formatString: '%d'},
-							label: 'num'
+							label: 'Number of Uses'
 			            }
 			        }
 			    });
 			    
 			    
-			    //ETHAN: ideally these values will also be read in, and can also be file names
-				
-				//input php scripts here and do everything in line in the same file.
+			   
 				<?php
-				$arrayX=array();
-				$arrayY=array();
-				$serverName = "2CE12909L0\ANALYTICS";
-				$connectionOptions = array("Database"=>"GCC_ANALYTICS");
-
-				/* Connect using Windows Authentication. */
-				$conn = sqlsrv_connect( $serverName, $connectionOptions);
-				if( $conn ) {
-					// echo "Connection established.<br />";
-				}else{
-					 //echo "Connection could not be established.<br />";
-					 die( print_r( sqlsrv_errors(), true));
-				}
+				$arrayX = array();
+				$arrayY = array();
 				$sql = "select top 10 as_id, count(*) as 'num' from tblAuditLog where as_id is not null group by as_id order by num desc";
 				$stmt = sqlsrv_query($conn, $sql);
 				if($stmt == false)
 				{
 					die(print_r(sqlsrv_errors(),true));
 				}
-				//echo "<table border='1'> <tr> <th> as_id </th> <th>num</th> </tr>";
 				while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 				{
-				  //$arrayX['as_id'] = $row['as_id'];
-				  //$arrayY['num'] = $row['num'];
-				  //echo "<tr>";
-				  //echo "<td>" . $row['as_id']. "</td>";
-				  //echo "<td>".$row['num']."</td>";
+				  
 				  array_push($arrayX,$row['as_id']);
 				  array_push($arrayY,$row['num']);
 				}
@@ -115,15 +139,15 @@
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
 			                ticks: ticks2,
-							label: 'as_id'
+							label: 'Asset ID'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
 							min: 0,
-							max: 6000,
+							max: <?php echo $arrayY[0] +1000 ?>,
 			                tickOptions: {formatString: '%d'},
-							label: 'num'
+							label: 'Number of Uses'
 			            }
 			        }
 			    });
@@ -136,14 +160,9 @@
 				{
 					die(print_r(sqlsrv_errors(),true));
 				}
-				//echo "<table border='1'> <tr> <th> as_id </th> <th>num</th> </tr>";
 				while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) )
 				{
-				  //$arrayX['as_id'] = $row['as_id'];
-				  //$arrayY['num'] = $row['num'];
-				  //echo "<tr>";
-				  //echo "<td>" . $row['as_id']. "</td>";
-				  //echo "<td>".$row['num']."</td>";
+				 
 				  array_push($arrayX1,$row['audit_type_id']);
 				  array_push($arrayY1,$row['num']);
 				}
@@ -175,15 +194,15 @@
 			            xaxis: {
 			                renderer: $.jqplot.CategoryAxisRenderer,
 			                ticks: ticks3,
-							label: 'audit_type_id'
+							label: 'Audit ID'
 			            },
 			 
 			            yaxis: {
 			                pad: 1.05,
 							min: 0,
-							max: 175000,
+							max: <?php echo $arrayY1[0] +500 ?>,
 			                tickOptions: {formatString: '%d'},
-							label: 'num'
+							label: 'Number of Uses'
 			            }
 			        }
 			    });
@@ -272,14 +291,27 @@
 			<li><a href="#tab2">Most Used Features</a></li>
 			<li><a href="#tab3">Specific Feature</a></li>
 		</ul>
-		<div id="tab1" class="main">
-			<h3>Features of User</h3>
+		<div id="tab1" class="main">		
+			<h3>Features of User</h3>		
+			<div class="right">
+                <form action="project.php" id="userIDfrm" method="post">
+                    User ID: 
+                    <input id="user_id" name="user_id">
+                </form>
+		</div>
+		<script>
+		document.getElementById("user_id").addEventListener("keydown", function(e) { 
+			// Enter is pressed
+			if (e.keyCode == 13) {document.getElementById("userIDfrm").submit(); }
+		}, false);
+
+		</script>
 			<div id="plot1" class="plot"></div>
 		</div>
 		<div id="tab2" class="main" style="display: none;">
 			<h3>Most Used Features</h3>
 			<div id="plot2" class="plot"></div>
-			</div>
+		</div>
 		<div id="tab3" class="main" style="display: none;">
 			<h3>Specific Feature</h3>
 			<div id="plot3" class="plot"></div>

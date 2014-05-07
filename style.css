@@ -148,3 +148,6 @@
 		.tabrow li.selected:after {
 		    box-shadow: -2px 2px 0 #013758;
 		}
+		.right{
+			float:right;
+		}
